@@ -11,11 +11,3 @@ def request_omie_energy_prices(url: str) -> requests.Response:
             "Maybe there is something wrong with the filename."
         )
     return request
-
-
-def check_content_type(response: requests.Response) -> str:
-    return response.headers["content-type"]
-
-
-def get_request_content(response: requests.Response) -> str:
-    return response.text

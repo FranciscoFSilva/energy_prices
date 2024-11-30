@@ -45,10 +45,6 @@ def request_omie_energy_prices(date: datetime) -> requests.Response:
         + ".TXT",
         timeout=100,
     )
-    if request.status_code != 200:
-        raise EnergyPricesFileNotFoundError(
-            "Maybe there is something wrong with the filename."
-        )
     return request
 
 
