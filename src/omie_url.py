@@ -1,13 +1,8 @@
-from dataclasses import dataclass
-
-
-@dataclass
 class OmieURL:
-    url = "https://www.omie.es/pt/file-download"
-    date_str: str
-
-    def payload(self) -> dict:
-        return {
+    def __init__(self, date_str):
+        self.date_str: date_str
+        self.url = "https://www.omie.es/pt/file-download"
+        self.payload: dict = {
             "parents[0]": "marginalpdbcpt",
-            "filename": "marginalpdbcpt_" + self.date_str + ".1",
+            "filename": "marginalpdbcpt_" + date_str + ".1",
         }

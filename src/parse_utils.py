@@ -1,12 +1,9 @@
-def parse_energy_prices(response_str: str) -> str:
-    data = response_str.replace("\n", "")
-    start_index = data.rfind("Precio marginal en el sistema portugués (EUR/MWh);")
-    end_index = data.find("Energía total de compra sistema español (MWh)")
-    energy_prices = (
-        data[start_index:end_index]
-        .removeprefix("Precio marginal en el sistema portugués (EUR/MWh);")
-        .replace(",", ".")
-        .replace(" ", "")
-        .replace(";", "\n")
-    )[:-1]
-    return energy_prices
+def get_portuguese_prices(energy_prices: list[str]) -> list[str]:
+    def parse_one_line(line: str) -> str:
+        aux = line.split(";")
+        date = "-".join(aux[0:3])
+        hour = aux[3]
+        price = aux[4]
+        return ",".join([date, hour, price])
+
+    return list(map(parse_one_line, energy_prices[1:-1]))
