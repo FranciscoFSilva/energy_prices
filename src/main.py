@@ -1,27 +1,16 @@
 import datetime_utils
-import errors
-import request
-import url_utils
+from energy_price_request import EnergyPriceRequest
+from omie_url import OmieURL
 
 
 def main() -> None:
-    tommorows_date = datetime_utils.get_tomorrows_datetime()
-    url = url_utils.get_price_url(tommorows_date)
-    r = request.request_omie_energy_prices(url)
+    tommorows_date = datetime_utils.get_tomorrow_date_as_str()
+    omie = OmieURL(tommorows_date)
+    energy_price_request = EnergyPriceRequest(omie.url, omie.payload())
+    response = energy_price_request.get_response()
+    energy_prices = energy_price_request.get_energy_prices(response)
 
-    if r.status_code != 200:
-        raise errors.EnergyPricesFileNotFoundError(
-            "Maybe there is something wrong with the filename."
-        )
-
-    if r.headers["content-type"] != "text/plain":
-        raise errors.ContentTypeIsNotPlainTextError(
-            "Check if omie.es changed the file type"
-        )
-
-    response = r.text
-
-    print(response)
+    print(energy_prices)
 
 
 if __name__ == "__main__":
