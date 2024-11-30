@@ -11,8 +11,8 @@ class EnergyPriceRequest:
         if response.raise_for_status() is None:
             return response
 
-    def get_energy_prices(self, response: requests.Response) -> str:
+    def get_energy_prices(self, response: requests.Response) -> list[str]:
         data = []
         for line in response.iter_lines():
             data.append(line.decode("utf-8"))
-        return "\n".join(data)
+        return data
