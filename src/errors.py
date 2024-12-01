@@ -2,5 +2,5 @@ class EnergyPricesFileNotFoundError(Exception):
     """Exception Class"""
 
 
-class ContentTypeIsNotPlainTextError(Exception):
+class NoContentInResponseError(Exception):
     """Exception Class"""

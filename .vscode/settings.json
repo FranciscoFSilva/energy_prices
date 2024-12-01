@@ -26,5 +26,6 @@
         "source.organizeImports": "always",
         "source.fixAll": "always"
     },
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "onFocusChange",
+    "python.analysis.autoImportCompletions": true
 }
