@@ -1,4 +1,4 @@
-from request.url_builder import URLBuilder
+from url.builder import URLBuilder
 
 
 class URLDirector:
