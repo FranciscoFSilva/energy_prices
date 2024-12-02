@@ -1,4 +1,4 @@
-from url_getter.url_interface import URL
+from request.url_interface import URL
 
 
 class URLGetter:

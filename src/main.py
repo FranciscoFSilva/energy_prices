@@ -1,8 +1,8 @@
-import datetime_utils
-import parse_utils
-from energy_price_request import EnergyPriceRequest
-from url_getter.url_getter import URLGetter
-from url_getter.url_strategies import DailyURL
+import utils.datetime_utils as datetime_utils
+import utils.parse_utils as parse_utils
+from request.energy_price_request import EnergyPriceRequest
+from request.url_getter import URLGetter
+from request.url_strategies import DailyURL
 
 
 def main() -> None:
