@@ -28,7 +28,7 @@ class URLDirector:
             .add_path("files")
             .add_path("dados")
             .add_path("AGNO_" + year)
-            .add_path("MES" + month)
+            .add_path("MES_" + month)
             .add_path("TXT")
             .add_path("INT_PBC_EV_H_1_" + date_format + "_" + date_format + ".TXT")
             .build()

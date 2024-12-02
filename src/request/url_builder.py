@@ -35,7 +35,7 @@ class URLBuilder:
         if self.port:
             url += f":{self.port}"
         if self.path:
-            url += f"{"/".join(self.path)}"
+            url += f"/{"/".join(self.path)}"
         if self.params:
             query_string = urlencode(self.params)
             url += f"?{query_string}"
